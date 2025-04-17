@@ -37,6 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const animateNames = () => {
     const now = new Date().getTime()
     if (now - lastTick > 500) {
+      // Clean up any names out of bounds
+      namesToRemove = businessNames.filter(name => {
+        const { left, right, top, bottom } = name.elem.getBoundingClientRect()
+        return right < 0 || left > window.innerWidth || bottom < 0 || top > window.innerHeight
+      })
+
+      businessNames = businessNames.filter(name => !namesToRemove.includes(name))
+      namesToRemove.forEach(nameToRemove => {
+        document.body.removeChild(nameToRemove.elem)
+      })
+
+      // Move remaining name ideas
       businessNames.forEach(name => {
         name.x += name.dX
         name.y += name.dY
