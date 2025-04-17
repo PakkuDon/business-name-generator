@@ -28,4 +28,24 @@ document.addEventListener("DOMContentLoaded", () => {
     businessnames.push(name)
     document.body.appendChild(elem)
   })
+
+  // Animate name ideas
+  let lastTick = 0
+  const animateNames = () => {
+    const now = new Date().getTime()
+    if (now - lastTick > 500) {
+      businessnames.forEach(name => {
+        name.x += name.dX
+        name.y += name.dY
+        name.elem.style.top = `${name.y}px`
+        name.elem.style.left = `${name.x}px`
+      })
+
+      lastTick = now
+    }
+
+    requestAnimationFrame(animateNames)
+  }
+
+  requestAnimationFrame(animateNames)
 })
