@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = {
         x: left,
         y: top,
-        dX: (Math.floor(Math.random() * 50) + 50) * (Math.random() > 0.5 ? 1 : -1),
-        dY: (Math.floor(Math.random() * 50) + 50) * (Math.random() > 0.5 ? 1 : -1),
+        dX: (Math.floor(Math.random() * 80) + 10) * (Math.random() > 0.5 ? 1 : -1),
+        dY: (Math.floor(Math.random() * 80) + 10) * (Math.random() > 0.5 ? 1 : -1),
       }
 
       // Create element for business name
