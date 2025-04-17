@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const submitButton = document.querySelector("button[type='submit']")
-  let businessnames = []
+  let businessNames = []
 
   // Code reused from Wall of Names sharks.js
   // Generate business name on submit
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add div for element to page
     name.elem = elem
-    businessnames.push(name)
+    businessNames.push(name)
     document.body.appendChild(elem)
   })
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const animateNames = () => {
     const now = new Date().getTime()
     if (now - lastTick > 500) {
-      businessnames.forEach(name => {
+      businessNames.forEach(name => {
         name.x += name.dX
         name.y += name.dY
         name.elem.style.top = `${name.y}px`
