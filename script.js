@@ -7,26 +7,29 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault()
 
-    // Spawn new element on submit button with random velocity values
-    const { top, left } = submitButton.getBoundingClientRect()
-    const name = {
-      x: left,
-      y: top,
-      dX: (Math.floor(Math.random() * 50) + 50) * (Math.random() > 0.5 ? 1 : -1),
-      dY: (Math.floor(Math.random() * 50) + 50) * (Math.random() > 0.5 ? 1 : -1),
+    const namesToGenerate = Math.floor(Math.random() * 5) + 1
+    for (let i = 0; i < namesToGenerate; i++) {
+      // Spawn new element on submit button with random velocity values
+      const { top, left } = submitButton.getBoundingClientRect()
+      const name = {
+        x: left,
+        y: top,
+        dX: (Math.floor(Math.random() * 50) + 50) * (Math.random() > 0.5 ? 1 : -1),
+        dY: (Math.floor(Math.random() * 50) + 50) * (Math.random() > 0.5 ? 1 : -1),
+      }
+
+      // Create element for business name
+      const elem = document.createElement("div")
+      elem.className = "business-name"
+      elem.style.top = `${name.y}px`
+      elem.style.left = `${name.x}px`
+      elem.style.animationDuration = `${Math.floor((Math.random() * 3) + 1)}s`
+
+      // Add div for element to page
+      name.elem = elem
+      businessNames.push(name)
+      document.body.appendChild(elem)
     }
-
-    // Create element for business name
-    const elem = document.createElement("div")
-    elem.className = "business-name"
-    elem.style.top = `${name.y}px`
-    elem.style.left = `${name.x}px`
-    elem.style.animationDuration = `${Math.floor((Math.random() * 3) + 1)}s`
-
-    // Add div for element to page
-    name.elem = elem
-    businessNames.push(name)
-    document.body.appendChild(elem)
   })
 
   // Animate name ideas
