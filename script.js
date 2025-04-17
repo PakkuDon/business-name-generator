@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const submitButton = document.querySelector("button[type='submit']")
-  const businessnames = []
+  let businessnames = []
 
   // Code reused from Wall of Names sharks.js
   // Generate business name on submit
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Create element for business name
     const elem = document.createElement("div")
-    elem.className = "business-name text-2xl"
+    elem.className = "business-name"
     elem.style.top = `${name.y}px`
     elem.style.left = `${name.x}px`
     elem.style.animationDuration = `${Math.floor((Math.random() * 3) + 1)}s`
