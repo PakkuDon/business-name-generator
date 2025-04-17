@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Create element for business name
       const elem = document.createElement("div")
-      elem.className = "business-name"
+      elem.className = `business-name ${Math.random() > 0.5 ? "clockwise" : "counterclockwise"}`
       elem.style.top = `${name.y}px`
       elem.style.left = `${name.x}px`
       elem.style.animationDuration = `${Math.floor((Math.random() * 3) + 1)}s`
